@@ -1,0 +1,53 @@
+{
+  "fixture_only": true,
+  "dataset_version": "synthetic-test-fixture-v1",
+  "records": [
+    {
+      "name": "Synthetic Ingredient A",
+      "name_kind": "source_name",
+      "source_locator": "fixture record A",
+      "aliases": [
+        {
+          "alias": "shared synthetic alias",
+          "alias_type": "synonym",
+          "locale": "en"
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_kind": "other",
+          "summary": "Synthetic fixture text only; not a factual ingredient or safety statement.",
+          "scope": "Automated tests only",
+          "locator": "fixture evidence A",
+          "excerpt": "Test-only excerpt; no external source."
+        }
+      ]
+    },
+    {
+      "name": "Synthetic Ingredient B",
+      "name_kind": "source_name",
+      "source_locator": "fixture record B",
+      "aliases": [
+        {
+          "alias": "shared synthetic alias",
+          "alias_type": "synonym",
+          "locale": "en"
+        }
+      ],
+      "evidence": []
+    },
+    {
+      "name": "Synthetic Ingredient C",
+      "name_kind": "source_name",
+      "source_locator": "fixture record C",
+      "aliases": [
+        {
+          "alias": "rejected synthetic alias",
+          "alias_type": "synonym",
+          "locale": "en"
+        }
+      ],
+      "evidence": []
+    }
+  ]
+}

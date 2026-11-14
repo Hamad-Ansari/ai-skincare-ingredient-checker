@@ -1,0 +1,244 @@
+name: clarity-checker
+
+x-default-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "5"
+
+x-app-common: &app-common
+  image: "clarity-checker-api:${APP_IMAGE_TAG:-local}"
+  build:
+    context: .
+    dockerfile: Dockerfile
+  environment:
+    APP_ENV: production
+    APP_SECRET_KEY: ${APP_SECRET_KEY:?Set APP_SECRET_KEY in .env.production}
+    DATABASE_URL: "postgresql+psycopg://${APP_DB_USER:?Set APP_DB_USER}:${APP_DB_PASSWORD:?Set APP_DB_PASSWORD}@db:5432/${POSTGRES_DB:?Set POSTGRES_DB}"
+    ALLOWED_ORIGINS: "https://${SITE_ADDRESS:?Set SITE_ADDRESS to the public DNS hostname}"
+    LOG_LEVEL: INFO
+    AUTH_EXPOSE_DEV_TOKENS: "false"
+    PRIVATE_SCAN_STORAGE_DIR: /app/data/private/scans
+    MAIL_HOST: ${MAIL_HOST:?Set a real SMTP host}
+    MAIL_PORT: ${MAIL_PORT:-587}
+    MAIL_USERNAME: ${MAIL_USERNAME:-}
+    MAIL_PASSWORD: ${MAIL_PASSWORD:-}
+    MAIL_FROM: ${MAIL_FROM:?Set MAIL_FROM to a real sender address}
+    MAIL_STARTTLS: "true"
+  networks:
+    - private
+    - egress
+  read_only: true
+  tmpfs:
+    - /tmp:rw,noexec,nosuid,size=64m
+  security_opt:
+    - no-new-privileges:true
+  cap_drop:
+    - ALL
+  pids_limit: 256
+  logging: *default-logging
+
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?Set POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_ADMIN_USER:?Set POSTGRES_ADMIN_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_ADMIN_PASSWORD:?Set POSTGRES_ADMIN_PASSWORD}
+      APP_DB_USER: ${APP_DB_USER:?Set APP_DB_USER}
+      APP_DB_PASSWORD: ${APP_DB_PASSWORD:?Set APP_DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/postgres/10-app-role.sh:/docker-entrypoint-initdb.d/10-app-role.sh:ro
+    networks:
+      - private
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 20s
+    stop_grace_period: 1m
+    logging: *default-logging
+
+  app:
+    <<: *app-common
+    restart: unless-stopped
+    init: true
+    command:
+      - python
+      - -m
+      - uvicorn
+      - backend.app.main:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8000"
+      - --workers
+      - "1"
+      - --proxy-headers
+      - --forwarded-allow-ips=*
+      - --no-access-log
+    volumes:
+      - scan_data:/app/data/private/scans
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - from urllib.request import urlopen; urlopen('http://127.0.0.1:8000/health/ready', timeout=3).read()
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:?Set SITE_ADDRESS to the public DNS hostname}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./infra/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - private
+      - egress
+    depends_on:
+      app:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=32m
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    logging: *default-logging
+
+  # Migrations are deliberately operator-run, not an app-start side effect.
+  # Take a database backup before running this service on an existing deployment.
+  migrate:
+    <<: *app-common
+    networks:
+      - private
+    profiles:
+      - ops
+    restart: "no"
+    command:
+      - python
+      - -m
+      - alembic
+      - -c
+      - backend/alembic.ini
+      - upgrade
+      - head
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # Initialize the named volume from the API image's UID-10001-owned path before
+  # backup/restore helpers use it, including on a fresh host with no app container.
+  scan-volume-init:
+    <<: *app-common
+    networks:
+      - private
+    profiles:
+      - ops
+    restart: "no"
+    command:
+      - python
+      - -c
+      - from pathlib import Path; Path('/app/data/private/scans').mkdir(parents=True, exist_ok=True)
+    volumes:
+      - scan_data:/app/data/private/scans
+
+  # These one-shot helpers stream only the private photo volume. Backup output
+  # is encrypted by scripts/backup_production.sh on the host before it is written.
+  scan-export:
+    image: busybox:1.37.0
+    profiles:
+      - ops
+    user: "10001:10001"
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    network_mode: none
+    volumes:
+      - scan_data:/scans:ro
+    entrypoint:
+      - tar
+    command:
+      - -czf
+      - -
+      - -C
+      - /scans
+      - .
+    logging: *default-logging
+
+  scan-list:
+    image: busybox:1.37.0
+    profiles:
+      - ops
+    user: "10001:10001"
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    network_mode: none
+    volumes:
+      - scan_data:/scans:ro
+    entrypoint:
+      - tar
+    command:
+      - -tzf
+      - -
+    logging: *default-logging
+
+  scan-restore:
+    image: busybox:1.37.0
+    profiles:
+      - ops
+    user: "10001:10001"
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    network_mode: none
+    volumes:
+      - scan_data:/scans
+    entrypoint:
+      - sh
+      - -ec
+    command:
+      - find /scans -mindepth 1 -maxdepth 1 -exec rm -rf {} +; exec tar -xzf - -C /scans
+    stdin_open: true
+    logging: *default-logging
+
+volumes:
+  postgres_data:
+  scan_data:
+  caddy_data:
+  caddy_config:
+
+networks:
+  private:
+    internal: true
+  egress:
+    driver: bridge

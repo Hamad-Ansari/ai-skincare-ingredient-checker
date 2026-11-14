@@ -1,0 +1,1058 @@
+{
+  "scanner": "axe-core via @axe-core/playwright",
+  "axePlaywrightVersion": "4.11.0",
+  "axeCoreVersion": "4.11.4",
+  "playwrightVersion": "1.56.1",
+  "browserEngine": "webkit",
+  "browser": "Webkit 26.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa"
+  ],
+  "note": "Automated scan only; not a WCAG conformance audit or assistive-technology user test.",
+  "assertions": [
+    {
+      "name": "landing status text meets 4.5:1 over a conservative translucent-card backing",
+      "passed": true,
+      "details": "5.50:1 when the 94% opaque card is composited over black"
+    },
+    {
+      "name": "first keyboard Tab focuses skip link",
+      "passed": true
+    },
+    {
+      "name": "no horizontal overflow on public landing (200% desktop-width proxy) at 640px CSS width",
+      "passed": true,
+      "details": "viewport 640px; document 640px; body 640px"
+    },
+    {
+      "name": "no horizontal overflow on public landing (WCAG reflow-width proxy) at 320px CSS width",
+      "passed": true,
+      "details": "viewport 320px; document 320px; body 320px"
+    },
+    {
+      "name": "no horizontal overflow on about page at 320px CSS width",
+      "passed": true,
+      "details": "viewport 320px; document 320px; body 320px"
+    },
+    {
+      "name": "no horizontal overflow on login form at 320px CSS width",
+      "passed": true,
+      "details": "viewport 320px; document 320px; body 320px"
+    },
+    {
+      "name": "dashboard welcome text meets 4.5:1 at every gradient stop",
+      "passed": true,
+      "details": "minimum 5.11:1; eyebrow 5.37:1, heading 10.78:1, body 5.11:1"
+    },
+    {
+      "name": "no horizontal overflow on dashboard (200% desktop-width proxy) at 640px CSS width",
+      "passed": true,
+      "details": "viewport 640px; document 640px; body 640px"
+    },
+    {
+      "name": "no horizontal overflow on scan (200% desktop-width proxy) at 640px CSS width",
+      "passed": true,
+      "details": "viewport 640px; document 640px; body 640px"
+    },
+    {
+      "name": "no horizontal overflow on settings (200% desktop-width proxy) at 640px CSS width",
+      "passed": true,
+      "details": "viewport 640px; document 640px; body 640px"
+    },
+    {
+      "name": "no horizontal overflow on dashboard (320px reflow-width proxy) at 320px CSS width",
+      "passed": true,
+      "details": "viewport 320px; document 320px; body 320px"
+    },
+    {
+      "name": "no horizontal overflow on scan (320px reflow-width proxy) at 320px CSS width",
+      "passed": true,
+      "details": "viewport 320px; document 320px; body 320px"
+    },
+    {
+      "name": "no horizontal overflow on settings (320px reflow-width proxy) at 320px CSS width",
+      "passed": true,
+      "details": "viewport 320px; document 320px; body 320px"
+    },
+    {
+      "name": "delete-account dialog has no horizontal overflow at 320px CSS width",
+      "passed": true,
+      "details": "viewport 320px; document 320px; body 320px"
+    },
+    {
+      "name": "route transition focuses heading and updates title",
+      "passed": true
+    },
+    {
+      "name": "dialog receives initial focus and traps Tab/Shift+Tab",
+      "passed": true
+    },
+    {
+      "name": "delete-dialog body text meets 4.5:1 against the opaque dialog surface",
+      "passed": true,
+      "details": "6.41:1 on the modal surface"
+    },
+    {
+      "name": "Escape closes dialog and restores opener focus",
+      "passed": true
+    },
+    {
+      "name": "mobile menu exposes state, moves focus, and restores focus on Escape",
+      "passed": true
+    }
+  ],
+  "scans": [
+    {
+      "state": "public-landing-desktop",
+      "url": "http://127.0.0.1:8767/",
+      "title": "Clarity Checker — skincare, made clearer",
+      "violationCount": 0,
+      "incompleteCount": 1,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".hero-card-line:nth-child(4) > span:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span>Not provided</span>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "public-about-desktop",
+      "url": "http://127.0.0.1:8767/#/about",
+      "title": "Useful context, without false certainty. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 0,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "state": "login-desktop",
+      "url": "http://127.0.0.1:8767/#/login",
+      "title": "Welcome back. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 0,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "state": "register-desktop",
+      "url": "http://127.0.0.1:8767/#/register",
+      "title": "Start with clarity. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 0,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "state": "password-reset-request-desktop",
+      "url": "http://127.0.0.1:8767/#/forgot",
+      "title": "Reset your password. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 0,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "state": "login-before-auth",
+      "url": "http://127.0.0.1:8767/#/login",
+      "title": "Welcome back. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 0,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "state": "workspace-dashboard-desktop",
+      "url": "http://127.0.0.1:8767/#/dashboard",
+      "title": "A calmer way to review. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 1,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".is-active > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⌂</span>"
+            },
+            {
+              "target": [
+                "a[data-route=\"history\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◷</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/profile\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◎</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/compare\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⇄</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/routines\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◌</span>"
+            },
+            {
+              "target": [
+                ".icon-button > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\">☰</span>"
+            },
+            {
+              "target": [
+                ".welcome-panel > div:nth-child(1) > .eyebrow"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<p class=\"eyebrow\">WELCOME TO YOUR SPACE</p>"
+            },
+            {
+              "target": [
+                ".welcome-panel > div:nth-child(1) > h2"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<h2>A little more clarity</h2>"
+            },
+            {
+              "target": [
+                ".welcome-panel > div:nth-child(1) > p:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<p>Start with a label photo, then take a moment to review the ingredient list before analysis.</p>"
+            },
+            {
+              "target": [
+                "article:nth-child(1) > .metric-top > .metric-icon[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"metric-icon\" aria-hidden=\"true\">◷</span>"
+            },
+            {
+              "target": [
+                "article:nth-child(2) > .metric-top > .metric-icon[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"metric-icon\" aria-hidden=\"true\">✓</span>"
+            },
+            {
+              "target": [
+                "article:nth-child(3) > .metric-top > .metric-icon[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"metric-icon\" aria-hidden=\"true\">⌁</span>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "scan-upload-desktop",
+      "url": "http://127.0.0.1:8767/#/scan",
+      "title": "Start with the label. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 1,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".nav-link[href$=\"#/dashboard\"][data-route=\"dashboard\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⌂</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/history\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◷</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/profile\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◎</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/compare\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⇄</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/routines\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◌</span>"
+            },
+            {
+              "target": [
+                ".icon-button > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\">☰</span>"
+            },
+            {
+              "target": [
+                ".upload-icon"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"upload-icon\" aria-hidden=\"true\">↥</span>"
+            },
+            {
+              "target": [
+                ".metric-icon"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"metric-icon\" aria-hidden=\"true\">▧</span>"
+            },
+            {
+              "target": [
+                ".button-primary > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\">→</span>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "scan-history-desktop",
+      "url": "http://127.0.0.1:8767/#/history",
+      "title": "Scan history. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 1,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".nav-link[href$=\"#/dashboard\"][data-route=\"dashboard\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⌂</span>"
+            },
+            {
+              "target": [
+                ".is-active > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◷</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/profile\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◎</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/compare\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⇄</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/routines\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◌</span>"
+            },
+            {
+              "target": [
+                ".icon-button > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\">☰</span>"
+            },
+            {
+              "target": [
+                ".empty-mark"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<div class=\"empty-mark\" aria-hidden=\"true\">◷</div>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "profile-desktop",
+      "url": "http://127.0.0.1:8767/#/profile",
+      "title": "Your notes, your terms. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 1,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".nav-link[href$=\"#/dashboard\"][data-route=\"dashboard\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⌂</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/history\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◷</span>"
+            },
+            {
+              "target": [
+                ".is-active > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◎</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/compare\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⇄</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/routines\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◌</span>"
+            },
+            {
+              "target": [
+                ".icon-button > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\">☰</span>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "settings-desktop",
+      "url": "http://127.0.0.1:8767/#/settings",
+      "title": "Your choices stay yours. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 1,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".nav-link[href$=\"#/dashboard\"][data-route=\"dashboard\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⌂</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/history\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◷</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/profile\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◎</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/compare\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⇄</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/routines\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◌</span>"
+            },
+            {
+              "target": [
+                ".icon-button > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\">☰</span>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "onboarding-desktop",
+      "url": "http://127.0.0.1:8767/#/onboarding",
+      "title": "A profile is optional. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 1,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".nav-link[href$=\"#/dashboard\"][data-route=\"dashboard\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⌂</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/history\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◷</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/profile\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◎</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/compare\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⇄</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/routines\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◌</span>"
+            },
+            {
+              "target": [
+                ".icon-button > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\">☰</span>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "compare-placeholder-desktop",
+      "url": "http://127.0.0.1:8767/#/compare",
+      "title": "Compare, when the foundations are ready. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 1,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".nav-link[href$=\"#/dashboard\"][data-route=\"dashboard\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⌂</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/history\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◷</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/profile\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◎</span>"
+            },
+            {
+              "target": [
+                ".is-active > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⇄</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/routines\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◌</span>"
+            },
+            {
+              "target": [
+                ".icon-button > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\">☰</span>"
+            },
+            {
+              "target": [
+                ".empty-mark"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<div class=\"empty-mark\" aria-hidden=\"true\">⇄</div>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "routines-placeholder-desktop",
+      "url": "http://127.0.0.1:8767/#/routines",
+      "title": "Routines, at your own pace. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 1,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".nav-link[href$=\"#/dashboard\"][data-route=\"dashboard\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⌂</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/history\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◷</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/profile\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◎</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/compare\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⇄</span>"
+            },
+            {
+              "target": [
+                ".is-active > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◌</span>"
+            },
+            {
+              "target": [
+                ".icon-button > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\">☰</span>"
+            },
+            {
+              "target": [
+                ".empty-mark"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<div class=\"empty-mark\" aria-hidden=\"true\">◌</div>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "workspace-dashboard-focus-check",
+      "url": "http://127.0.0.1:8767/#/dashboard",
+      "title": "A calmer way to review. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 1,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".is-active > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⌂</span>"
+            },
+            {
+              "target": [
+                "a[data-route=\"history\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◷</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/profile\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◎</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/compare\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⇄</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/routines\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◌</span>"
+            },
+            {
+              "target": [
+                ".icon-button > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\">☰</span>"
+            },
+            {
+              "target": [
+                ".welcome-panel > div:nth-child(1) > .eyebrow"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<p class=\"eyebrow\">WELCOME TO YOUR SPACE</p>"
+            },
+            {
+              "target": [
+                ".welcome-panel > div:nth-child(1) > h2"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<h2>A little more clarity</h2>"
+            },
+            {
+              "target": [
+                ".welcome-panel > div:nth-child(1) > p:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<p>Start with a label photo, then take a moment to review the ingredient list before analysis.</p>"
+            },
+            {
+              "target": [
+                "article:nth-child(1) > .metric-top > .metric-icon[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"metric-icon\" aria-hidden=\"true\">◷</span>"
+            },
+            {
+              "target": [
+                "article:nth-child(2) > .metric-top > .metric-icon[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"metric-icon\" aria-hidden=\"true\">✓</span>"
+            },
+            {
+              "target": [
+                "article:nth-child(3) > .metric-top > .metric-icon[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"metric-icon\" aria-hidden=\"true\">⌁</span>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "settings-route-focus-check",
+      "url": "http://127.0.0.1:8767/#/settings",
+      "title": "Your choices stay yours. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 1,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".nav-link[href$=\"#/dashboard\"][data-route=\"dashboard\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⌂</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/history\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◷</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/profile\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◎</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/compare\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⇄</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/routines\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◌</span>"
+            },
+            {
+              "target": [
+                ".icon-button > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\">☰</span>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "settings-delete-account-dialog",
+      "url": "http://127.0.0.1:8767/#/settings",
+      "title": "Your choices stay yours. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 1,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".nav-link[href$=\"#/dashboard\"][data-route=\"dashboard\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⌂</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/history\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◷</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/profile\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◎</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/compare\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⇄</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/routines\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◌</span>"
+            },
+            {
+              "target": [
+                ".icon-button > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\">☰</span>"
+            },
+            {
+              "target": [
+                ".modal > p:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements",
+              "html": "<p>This permanently removes your account, saved scans, analysis history, declarations, and private scan photos.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "settings-mobile-navigation-open",
+      "url": "http://127.0.0.1:8767/#/settings",
+      "title": "Your choices stay yours. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 1,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".nav-link[href$=\"#/dashboard\"][data-route=\"dashboard\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⌂</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/history\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◷</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/profile\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◎</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/compare\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">⇄</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"#/routines\"] > .nav-symbol[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"nav-symbol\" aria-hidden=\"true\">◌</span>"
+            },
+            {
+              "target": [
+                ".icon-button > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\">☰</span>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "settings-mobile-navigation-closed",
+      "url": "http://127.0.0.1:8767/#/settings",
+      "title": "Your choices stay yours. — Clarity Checker",
+      "violationCount": 0,
+      "incompleteCount": 1,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".icon-button > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\">☰</span>"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
