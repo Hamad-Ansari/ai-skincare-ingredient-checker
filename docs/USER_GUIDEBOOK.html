@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Hammad Zahid">
+  <meta name="description" content="A practical guide to reviewing skincare labels, correcting ingredient text, and understanding Clarity Checker’s educational results and limits.">
+  <meta name="keywords" content="skincare ingredient checker Pakistan, cosmetic ingredient label guide, skincare label review, INCI ingredient list, cosmetic ingredients, skincare product ingredients, سکن کیئر اجزاء چیکر">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Clarity Checker">
+  <meta property="og:title" content="Skincare Ingredient Checker — User Guidebook | Clarity Checker">
+  <meta property="og:description" content="Learn to review a skincare label, correct ingredient text, and interpret source-linked educational notes—with clear safety limits.">
+  <meta property="og:locale" content="en_PK">
+  <meta name="twitter:card" content="summary">
+  <title>Skincare Ingredient Checker Guide | Clarity Checker</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #26362f;
+      --ink-soft: #4c5d54;
+      --muted: #59665e;
+      --sage: #426758;
+      --sage-dark: #2f5143;
+      --sage-pale: #e8efea;
+      --cream: #f5f4ee;
+      --paper: #fffefa;
+      --line: #e1e5dc;
+      --terracotta: #86503e;
+      --terracotta-pale: #f8ece6;
+      --gold: #805d28;
+      --gold-pale: #f4efe3;
+      --blue-pale: #edf2f2;
+      --shadow: 0 18px 50px rgba(37, 54, 46, .08);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+      background: var(--cream);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-width: 320px; color: var(--ink); background: var(--cream); line-height: 1.65; }
+    a { color: var(--sage-dark); text-decoration-thickness: .08em; text-underline-offset: .18em; }
+    a:hover { color: #1d3d2e; }
+    button { font: inherit; }
+    :focus-visible { outline: 3px solid #537e68; outline-offset: 3px; border-radius: 5px; }
+    .skip-link { position: fixed; z-index: 20; top: 12px; left: 12px; transform: translateY(-160%); padding: 10px 14px; border-radius: 9px; background: var(--ink); color: white; }
+    .skip-link:focus { transform: translateY(0); }
+    .topbar { max-width: 1440px; min-height: 80px; margin: 0 auto; padding: 14px 36px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
+    .brand-mark { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 14px 14px 14px 4px; background: var(--sage); color: #fffefa; transform: rotate(-5deg); }
+    .brand-mark svg { width: 24px; height: 24px; transform: rotate(5deg); }
+    .brand-copy { display: grid; line-height: 1; }
+    .brand-copy strong { font: 600 1.24rem Georgia, "Times New Roman", serif; letter-spacing: -.025em; }
+    .brand-copy small { margin-top: 6px; color: var(--muted); font-size: .58rem; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+    .top-actions { display: flex; align-items: center; gap: 10px; }
+    .draft-pill { display: inline-flex; align-items: center; gap: 7px; padding: 7px 11px; border: 1px solid #e2d5b9; border-radius: 999px; background: var(--gold-pale); color: #674c25; font-size: .76rem; font-weight: 750; }
+    .draft-pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #a67834; }
+    .print-button { border: 1px solid var(--line); border-radius: 999px; padding: 8px 13px; background: var(--paper); color: var(--ink); cursor: pointer; font-size: .82rem; font-weight: 700; }
+    .print-button:hover { background: var(--sage-pale); }
+    .layout { display: grid; grid-template-columns: 245px minmax(0, 870px); gap: 42px; align-items: start; max-width: 1280px; margin: 0 auto; padding: 22px 32px 76px; }
+    .toc { position: sticky; top: 22px; padding: 20px 16px 18px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255, 254, 250, .8); }
+    .toc h2 { margin: 0 0 12px; color: var(--sage-dark); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; }
+    .toc ol { display: grid; gap: 3px; margin: 0; padding-left: 20px; }
+    .toc li { padding-left: 2px; color: #7c8980; font-size: .84rem; }
+    .toc a { display: block; padding: 4px 2px; color: var(--ink-soft); text-decoration: none; }
+    .toc a:hover { color: var(--sage-dark); text-decoration: underline; }
+    main { min-width: 0; }
+    .hero { position: relative; overflow: hidden; padding: clamp(30px, 5vw, 57px); border: 1px solid #e2e5db; border-radius: 25px; background: radial-gradient(circle at 95% 5%, rgba(223, 231, 212, .72), transparent 30%), linear-gradient(135deg, #fffefa 0%, #f2f3ec 100%); box-shadow: var(--shadow); }
+    .eyebrow { margin: 0 0 12px; color: var(--sage); font-size: .68rem; font-weight: 850; letter-spacing: .17em; text-transform: uppercase; }
+    h1, h2, h3 { color: var(--ink); }
+    h1 { max-width: 780px; margin: 0; font: 500 clamp(2.7rem, 6vw, 4.8rem)/.99 Georgia, "Times New Roman", serif; letter-spacing: -.055em; }
+    h1 em { color: var(--sage); font-weight: 400; }
+    .hero-lead { max-width: 660px; margin: 22px 0 0; color: var(--ink-soft); font-size: 1.08rem; line-height: 1.8; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 25px; }
+    .meta-chip { padding: 6px 10px; border: 1px solid #dce2d9; border-radius: 999px; background: rgba(255,255,255,.66); color: var(--ink-soft); font-size: .75rem; font-weight: 700; }
+    .notice { display: flex; gap: 14px; margin: 22px 0; padding: 17px 19px; border: 1px solid transparent; border-radius: 15px; }
+    .notice-icon { flex: 0 0 26px; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; font-weight: 850; }
+    .notice strong { display: block; margin-bottom: 3px; }
+    .notice p { margin: 3px 0 0; }
+    .notice.draft { border-color: #e5d9bf; background: var(--gold-pale); color: #4c412d; }
+    .notice.draft .notice-icon { background: #e5d7b6; color: #60471f; }
+    .notice.safety { border-color: #e9cfc1; background: var(--terracotta-pale); color: #57372d; }
+    .notice.safety .notice-icon { background: #ead1c4; color: #623c2e; }
+    .notice.info { border-color: #d9e5df; background: var(--sage-pale); color: #314d40; }
+    .notice.info .notice-icon { background: #d3e0d6; color: #315644; }
+    .quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0 38px; }
+    .quick-card { min-height: 130px; padding: 16px; border: 1px solid var(--line); border-radius: 15px; background: var(--paper); }
+    .quick-card .num { display: block; margin-bottom: 7px; color: var(--terracotta); font: 1rem Georgia, serif; }
+    .quick-card strong { display: block; font: 500 1.08rem Georgia, serif; }
+    .quick-card p { margin: 6px 0 0; color: var(--muted); font-size: .84rem; line-height: 1.5; }
+    .section { margin-top: 42px; scroll-margin-top: 18px; }
+    .section-heading { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 17px; }
+    .section-number { flex: 0 0 36px; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 12px 12px 12px 4px; background: var(--sage-pale); color: var(--sage-dark); font: 600 1rem Georgia, serif; }
+    .section-heading h2 { margin: 0; font: 500 clamp(1.65rem, 3.1vw, 2.15rem)/1.2 Georgia, "Times New Roman", serif; letter-spacing: -.025em; }
+    .section-heading p { margin: 5px 0 0; color: var(--muted); }
+    .card { margin: 15px 0; padding: 22px 23px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
+    .card h3 { margin: 0 0 7px; font: 500 1.22rem Georgia, serif; }
+    .card p { margin: 7px 0; color: var(--ink-soft); }
+    .card ul, .card ol { margin: 9px 0 5px; padding-left: 22px; }
+    .card li { margin: 5px 0; color: var(--ink-soft); }
+    .step { display: grid; grid-template-columns: 48px 1fr; gap: 16px; margin: 13px 0; padding: 18px; border: 1px solid var(--line); border-radius: 15px; background: var(--paper); }
+    .step-badge { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: var(--sage); color: white; font: 600 1.1rem Georgia, serif; }
+    .step h3 { margin: 1px 0 5px; font: 500 1.2rem Georgia, serif; }
+    .step p { margin: 4px 0; color: var(--ink-soft); }
+    .step ul { margin: 7px 0 0; padding-left: 19px; color: var(--ink-soft); }
+    .step li { margin: 3px 0; }
+    .inline-note { margin-top: 12px; padding: 12px 14px; border-left: 3px solid var(--sage); border-radius: 0 9px 9px 0; background: #f1f4ef; color: var(--ink-soft); font-size: .9rem; }
+    .ingredient-example { margin: 13px 0; padding: 14px 17px; border: 1px solid var(--line); border-radius: 12px; background: #f6f7f1; color: #33463b; font: .91rem/1.7 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-line; }
+    .table-wrap { overflow-x: auto; margin: 15px 0; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; }
+    th, td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: #eff2eb; color: var(--sage-dark); font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; }
+    td { color: var(--ink-soft); font-size: .9rem; }
+    tr:last-child td { border-bottom: 0; }
+    code { padding: .12em .35em; border-radius: 5px; background: #eef0e9; color: #31483a; font-size: .9em; }
+    details { margin: 10px 0; padding: 13px 15px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); }
+    summary { color: var(--sage-dark); cursor: pointer; font-weight: 750; }
+    details p { margin: 10px 0 0; color: var(--ink-soft); }
+    .callout-list { display: grid; gap: 10px; margin: 14px 0 0; }
+    .callout-item { display: grid; grid-template-columns: 22px 1fr; gap: 10px; color: var(--ink-soft); }
+    .walkthrough-status { margin: 16px 0; padding: 14px 16px; border: 1px solid #e5d9bf; border-radius: 13px; background: var(--gold-pale); color: #4c412d; }
+    .walkthrough-status strong { display: block; margin-bottom: 3px; }
+    .walkthrough-status p { margin: 0; }
+    .walkthrough-provider-note { margin: 0 0 15px; color: var(--muted); font-size: .82rem; line-height: 1.6; }
+    .walkthrough-provider-note strong { color: var(--ink-soft); }
+    .walkthrough-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
+    .walkthrough-card { min-width: 0; padding: 15px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); box-shadow: var(--shadow); }
+    .walkthrough-card h3 { margin: 0 0 12px; font: 500 1.18rem Georgia, "Times New Roman", serif; }
+    .walkthrough-video { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 11px; background: #1c2420; object-fit: contain; }
+    .walkthrough-caption { margin: 8px 0 0; color: var(--muted); font-size: .75rem; line-height: 1.5; }
+    .walkthrough-transcript { margin-top: 12px; padding: 11px 12px; }
+    .walkthrough-transcript-copy { max-height: 320px; overflow: auto; margin-top: 8px; color: var(--ink-soft); font-size: .82rem; }
+    .walkthrough-transcript-copy p { margin: 8px 0; }
+    .walkthrough-transcript-copy[dir="rtl"] { direction: rtl; text-align: right; font-family: "Noto Naskh Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif; line-height: 2; }
+    .walkthrough-downloads { display: flex; flex-wrap: wrap; gap: 7px 12px; margin-top: 11px; font-size: .74rem; line-height: 1.5; }
+    .walkthrough-downloads a { color: var(--sage-dark); }
+    .check { color: var(--sage); font-weight: 900; }
+    .xmark { color: var(--terracotta); font-weight: 900; }
+    .glossary { display: grid; grid-template-columns: minmax(120px, .35fr) 1fr; gap: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--paper); }
+    .glossary dt, .glossary dd { margin: 0; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+    .glossary dt { color: var(--sage-dark); font-weight: 800; }
+    .glossary dd { color: var(--ink-soft); }
+    .glossary dt:last-of-type, .glossary dd:last-of-type { border-bottom: 0; }
+    .creator-card h3 { margin-bottom: 8px; }
+    .social-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
+    .social-link { min-height: 40px; display: inline-flex; align-items: center; gap: 8px; padding: 0 13px; border: 1px solid var(--line-strong); border-radius: 999px; background: #fffefa; color: var(--sage-dark); font-size: .82rem; font-weight: 700; text-decoration: none; }
+    .social-link:hover { background: var(--sage-pale); border-color: #bfcec1; }
+    .footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+    .footer p { margin: 6px 0; }
+    .back-top { display: inline-block; margin-top: 8px; font-weight: 750; }
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; gap: 22px; padding-inline: 22px; }
+      .toc { position: static; }
+      .toc ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .toc li { padding-right: 8px; }
+    }
+    @media (max-width: 620px) {
+      .topbar { min-height: 68px; padding: 12px 16px; }
+      .brand-copy strong { font-size: 1.05rem; }
+      .brand-copy small { font-size: .49rem; }
+      .brand-mark { width: 35px; height: 35px; }
+      .top-actions { gap: 6px; }
+      .draft-pill { max-width: 104px; padding: 6px 8px; font-size: .66rem; line-height: 1.2; }
+      .print-button { padding: 7px 9px; font-size: .73rem; }
+      .layout { padding: 10px 14px 48px; }
+      .toc { padding: 16px 14px; }
+      .toc ol { grid-template-columns: 1fr 1fr; }
+      .toc li { font-size: .78rem; }
+      .hero { padding: 28px 22px; border-radius: 19px; }
+      h1 { font-size: clamp(2.45rem, 13vw, 3.4rem); }
+      .hero-lead { font-size: .98rem; }
+      .quick-grid { grid-template-columns: 1fr; gap: 8px; margin-bottom: 30px; }
+      .quick-card { min-height: auto; }
+      .walkthrough-grid { grid-template-columns: 1fr; }
+      .section { margin-top: 32px; }
+      .card { padding: 17px; }
+      .step { grid-template-columns: 38px 1fr; gap: 11px; padding: 14px; }
+      .step-badge { width: 32px; height: 32px; }
+      .glossary { grid-template-columns: 1fr; }
+      .glossary dt { padding-bottom: 3px; border-bottom: 0; }
+      .glossary dd { padding-top: 3px; }
+      .glossary dd:last-of-type { border-bottom: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      :root { scroll-behavior: auto; }
+    }
+    @media print {
+      :root, body { background: #fff; color: #111; }
+      .topbar { min-height: 0; padding: 0 0 14px; }
+      .top-actions, .toc, .skip-link, .back-top { display: none !important; }
+      .layout { display: block; max-width: none; padding: 0; }
+      .hero, .card, .step, .notice, details, .table-wrap, .glossary, .walkthrough-card { box-shadow: none; break-inside: avoid; }
+      .walkthrough-video { display: none; }
+      .hero { padding: 24px; }
+      .section { margin-top: 26px; }
+      a { color: #1d3d2e; }
+      .footer { margin-top: 24px; }
+      @page { margin: 15mm; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the guide</a>
+  <header class="topbar" id="top">
+    <a class="brand" href="#top" aria-label="Clarity Checker user guide home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.8 4.8C12.4 4.6 7.5 6.1 5.2 9.4c-2.1 3 .1 6.9 3.6 6.9 4.8 0 8.9-5.5 10-11.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4.6 20c2.7-4 6.2-7 10.5-9.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </span>
+      <span class="brand-copy"><strong>Clarity Checker</strong><small>AI Skincare Ingredient Checker</small></span>
+    </a>
+    <div class="top-actions">
+      <span class="draft-pill">Pre-launch draft</span>
+      <button class="print-button" id="print-guide" type="button">Print / Save PDF</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Guide contents">
+      <h2>In this guide</h2>
+      <ol>
+        <li><a href="#start">Start here</a></li>
+        <li><a href="#walkthrough">Bilingual walkthrough</a></li>
+        <li><a href="#account">Account &amp; profile</a></li>
+        <li><a href="#scan">Scan a label</a></li>
+        <li><a href="#review">Review ingredients</a></li>
+        <li><a href="#results">Understand results</a></li>
+        <li><a href="#explanations">Optional explanations</a></li>
+        <li><a href="#privacy">Privacy controls</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#glossary">Glossary</a></li>
+        <li><a href="#creator">About the creator</a></li>
+      </ol>
+    </nav>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="guide-title">
+        <p class="eyebrow">A practical guide · Version 0.1</p>
+        <h1 id="guide-title">Your label.<br><em>Your review.</em></h1>
+        <p class="hero-lead">Learn how to create an account, submit a skincare label, correct the ingredient list, and interpret the source-linked notes—without mistaking a missing finding for a safety guarantee.</p>
+        <div class="hero-meta"><span class="meta-chip">For end users</span><span class="meta-chip">Web app guide</span><span class="meta-chip">Educational information only</span></div>
+      </section>
+
+      <div class="notice draft" role="note" aria-label="Pre-launch status">
+        <span class="notice-icon" aria-hidden="true">i</span>
+        <div><strong>Draft for pre-release review — not yet a live-service manual.</strong>
+          <p>The app has no production URL. Its production ingredient/evidence rule set is empty, OCR is not enabled in the current image, and comparison/routine features are not available. Confirm actual privacy, retention, support, and service details before publishing this guide or inviting real users.</p>
+        </div>
+      </div>
+
+      <div class="notice safety" role="note">
+        <span class="notice-icon" aria-hidden="true">!</span>
+        <div><strong>Clarity Checker is educational—not medical advice.</strong>
+          <p>It does not diagnose, prescribe, or guarantee that a product is safe or suitable for you. It cannot assess your health, allergies, or likely reaction. If you have a health concern, seek advice from a qualified healthcare professional.</p>
+        </div>
+      </div>
+
+      <section class="section" id="walkthrough" aria-labelledby="walkthrough-title">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">▶</span><div><h2 id="walkthrough-title">Watch the bilingual walkthrough</h2><p>Choose English or Urdu narration, then choose either caption language from the video’s CC menu. Each version includes a full transcript.</p></div></div>
+        <div class="walkthrough-status" role="note"><strong>Pre-launch prototype, not live product coverage.</strong><p>The production ingredient and evidence corpus is empty, OCR is unavailable in the current app image, and Compare/Routines are not connected yet. The application interface is English; Urdu is provided for this walkthrough. Screens shown are illustrative.</p></div>
+        <p class="walkthrough-provider-note"><strong>Optional explanation providers, if configured:</strong> Ollama uses an operator-managed local endpoint; OpenAI and Groq are cloud providers and require separate consent. Explanations can only supplement an existing finding and cannot change it.</p>
+        <div class="walkthrough-grid">
+          <article class="walkthrough-card" aria-labelledby="walkthrough-en-title">
+            <h3 id="walkthrough-en-title">English narration · masculine voice · 1:22</h3>
+            <video class="walkthrough-video" controls playsinline preload="metadata" poster="../frontend/assets/clarity-walkthrough-poster.jpg" aria-labelledby="walkthrough-en-title" aria-describedby="walkthrough-en-caption">
+              <source src="../frontend/assets/clarity-walkthrough-en.mp4" type="video/mp4">
+              <source src="../frontend/assets/clarity-walkthrough-en.webm" type="video/webm">
+              <track kind="captions" src="../frontend/assets/clarity-walkthrough-en.vtt" srclang="en" label="English captions" default>
+              <track kind="captions" src="../frontend/assets/clarity-walkthrough-en-ur.vtt" srclang="ur" label="Urdu captions">
+              <p>Your browser cannot play this video. <a href="../frontend/assets/clarity-walkthrough-en.mp4" download>Download MP4</a> or <a href="../frontend/assets/clarity-walkthrough-en.webm" download>download WebM</a>.</p>
+            </video>
+            <p class="walkthrough-caption" id="walkthrough-en-caption">English voice with English captions and a translated Urdu caption track. Select CC to change captions.</p>
+            <details class="walkthrough-transcript"><summary>Read the English transcript</summary><div class="walkthrough-transcript-copy" lang="en">
+              <p>Welcome to Clarity Checker. This is a pre-launch walkthrough: the production ingredient and evidence library is empty, and OCR is not enabled in the current app image. This video explains the workflow, not live product results.</p>
+              <p>Create an account with a unique password of at least twelve characters, verify your email, then sign in. The optional profile is for your own notes. It is not a diagnosis and is not sent to explanation providers.</p>
+              <p>Choose a clear J P E G, P N G, or WebP label photo up to ten megabytes. In this build, type ingredients manually, one per line, and compare every spelling with the package. Never confirm text you have not checked.</p>
+              <p>Save a draft if you want to return later. To analyze, confirm the non-empty list you reviewed, then select Analyze confirmed list. Matching is exact; unknown or ambiguous names stay unresolved. No finding is not proof of safety.</p>
+              <p>Explanations are optional. OpenAI and Groq need separate consent and can explain one finding, but never change results. History lets you reopen or delete scans. Settings offers export, account deletion, and consent controls. This is educational information, not medical advice.</p>
+            </div></details>
+            <nav class="walkthrough-downloads" aria-label="English video, transcript and captions">
+              <a href="../frontend/assets/clarity-walkthrough-en.mp4" download>Download MP4</a>
+              <a href="../frontend/assets/clarity-walkthrough-en.webm" download>Download WebM</a>
+              <a href="../frontend/assets/clarity-walkthrough-transcript-en.txt" download>Download transcript</a>
+              <a href="../frontend/assets/clarity-walkthrough-en.vtt" download>English captions</a>
+              <a href="../frontend/assets/clarity-walkthrough-en-ur.vtt" download>Urdu captions</a>
+            </nav>
+          </article>
+          <article class="walkthrough-card" aria-labelledby="walkthrough-ur-title">
+            <h3 id="walkthrough-ur-title">اردو آواز · مردانہ آواز · 1:52</h3>
+            <video class="walkthrough-video" controls playsinline preload="metadata" poster="../frontend/assets/clarity-walkthrough-poster-ur.jpg" aria-labelledby="walkthrough-ur-title" aria-describedby="walkthrough-ur-caption">
+              <source src="../frontend/assets/clarity-walkthrough-ur.mp4" type="video/mp4">
+              <source src="../frontend/assets/clarity-walkthrough-ur.webm" type="video/webm">
+              <track kind="captions" src="../frontend/assets/clarity-walkthrough-ur.vtt" srclang="ur" label="Urdu captions" default>
+              <track kind="captions" src="../frontend/assets/clarity-walkthrough-ur-en.vtt" srclang="en" label="English captions">
+              <p>Your browser cannot play this video. <a href="../frontend/assets/clarity-walkthrough-ur.mp4" download>Download MP4</a> or <a href="../frontend/assets/clarity-walkthrough-ur.webm" download>download WebM</a>.</p>
+            </video>
+            <p class="walkthrough-caption" id="walkthrough-ur-caption">Urdu voice with Urdu captions and an English translated caption track. Select CC to change captions.</p>
+            <details class="walkthrough-transcript"><summary>اردو ٹرانسکرپٹ پڑھیں</summary><div class="walkthrough-transcript-copy" lang="ur" dir="rtl">
+              <p>کلیئرٹی چیکر میں خوش آمدید۔ یہ اجرا سے پہلے کی رہنمائی ویڈیو ہے۔ موجودہ ایپ میں حقیقی اجزاء اور شواہد کا ڈیٹا خالی ہے، اور اس ورژن میں تصویر سے متن پڑھنے کی سہولت فعال نہیں۔ یہ ویڈیو طریقۂ استعمال سمجھاتی ہے، نتائج نہیں۔</p>
+              <p>اکاؤنٹ بنائیں، کم از کم بارہ حروف کا منفرد پاس ورڈ رکھیں، ای میل کی تصدیق کریں اور پھر سائن اِن کریں۔ اختیاری پروفائل صرف آپ کے ذاتی نوٹس کے لیے ہے۔ یہ تشخیص نہیں اور وضاحت فراہم کرنے والے اے آئی نظاموں کو نہیں بھیجا جاتا۔</p>
+              <p>اجزاء کے لیبل کی صاف تصویر منتخب کریں، جے پی ای جی، پی این جی یا ویب پی فارمیٹ میں، اور دس میگا بائٹ سے کم رکھیں۔ اس ورژن میں اجزاء ایک ایک سطر میں خود لکھیں اور ہر ہجے پیکج سے ملائیں۔ جس متن کو خود نہ پڑھا ہو، اس کی تصدیق نہ کریں۔</p>
+              <p>اگر بعد میں واپس آنا ہو تو مسودہ محفوظ کریں۔ تجزیے کے لیے اپنی خالی نہ ہونے والی فہرست کی تصدیق کریں، پھر تصدیق شدہ فہرست کا تجزیہ منتخب کریں۔ نام کا بالکل درست ملنا ضروری ہے۔ نام نہ ملے یا مبہم ہو تو کوئی اندازہ نہیں لگایا جاتا۔ نتیجہ نہ آنا حفاظت کا ثبوت نہیں۔</p>
+              <p>وضاحت لینا اختیاری ہے۔ اوپن اے آئی اور گروک کے لیے الگ اجازت درکار ہے۔ وضاحت صرف ایک نتیجے کے بارے میں ہوتی ہے اور اصل نتیجہ نہیں بدلتی۔ ہسٹری میں اسکین دوبارہ کھولیں یا حذف کریں۔ سیٹنگز سے ڈیٹا برآمد، اکاؤنٹ حذف اور اجازتیں منظم کریں۔ یہ معلوماتی ٹول ہے، طبی مشورہ نہیں۔</p>
+            </div></details>
+            <nav class="walkthrough-downloads" aria-label="Urdu video, transcript and captions">
+              <a href="../frontend/assets/clarity-walkthrough-ur.mp4" download>Download MP4</a>
+              <a href="../frontend/assets/clarity-walkthrough-ur.webm" download>Download WebM</a>
+              <a href="../frontend/assets/clarity-walkthrough-transcript-ur.txt" download>Download transcript</a>
+              <a href="../frontend/assets/clarity-walkthrough-ur.vtt" download>Urdu captions</a>
+              <a href="../frontend/assets/clarity-walkthrough-ur-en.vtt" download>English captions</a>
+            </nav>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="start" aria-labelledby="start-title">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">00</span><div><h2 id="start-title">Start here</h2><p>Four basics to keep in mind before your first scan.</p></div></div>
+        <div class="quick-grid">
+          <article class="quick-card"><span class="num">01 / Review</span><strong>OCR is a draft</strong><p>Check every item yourself; camera text can be wrong or unavailable.</p></article>
+          <article class="quick-card"><span class="num">02 / Confirm</span><strong>You control analysis</strong><p>The app analyzes only a non-empty ingredient list that you explicitly confirm.</p></article>
+          <article class="quick-card"><span class="num">03 / Interpret</span><strong>No score or guarantee</strong><p>Results cover only the rules and evidence currently configured.</p></article>
+        </div>
+        <div class="card">
+          <h3>The six-step flow</h3>
+          <ol>
+            <li>Create and verify an account, or sign in.</li>
+            <li>Optionally add personal notes to your profile.</li>
+            <li>Upload a clear photo of the product's ingredient label.</li>
+            <li>Correct the OCR draft or type the list manually, one ingredient per line.</li>
+            <li>Confirm the list, then choose <strong>Analyze confirmed list</strong>.</li>
+            <li>Read the limitations and citations; decide what follow-up is appropriate for you.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="account" aria-labelledby="account-title">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">01</span><div><h2 id="account-title">Create an account and set up your space</h2><p>Your account keeps your scans in a private, user-specific workspace.</p></div></div>
+        <div class="card">
+          <h3>Create, verify, and sign in</h3>
+          <ol>
+            <li>Choose <strong>Create account</strong> and enter an email address you can access.</li>
+            <li>Create a unique password of at least <strong>12 characters</strong>. Do not reuse a password from another service.</li>
+            <li>Follow the verification instructions sent to your email. If the message is missing, check spam/junk or use the verification page to request new instructions.</li>
+            <li>Sign in after verification. Use <strong>Forgot password?</strong> if you need to reset your password; one-time reset tokens should be kept private and used only once.</li>
+          </ol>
+          <div class="inline-note"><strong>Keep access private.</strong> Do not share your password or verification/reset token with anyone. The app interface does not collect provider API keys; do not enter those in a user message or support request.</div>
+        </div>
+        <div class="card">
+          <h3>Optional profile notes</h3>
+          <p>The optional profile can hold a display name, a self-reported skin-type selection, locale, and up to ten personal notes. You may skip onboarding and edit the profile later.</p>
+          <p>These entries are user-reported context—not medical records, verified allergies, or a diagnosis. The interface says profile notes are not sent to explanation providers. Add only information you are comfortable storing in your account.</p>
+        </div>
+      </section>
+
+      <section class="section" id="scan" aria-labelledby="scan-title">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">02</span><div><h2 id="scan-title">Scan a product label</h2><p>Choose a clear image so you can compare the text with the package.</p></div></div>
+        <div class="step">
+          <span class="step-badge" aria-hidden="true">1</span>
+          <div><h3>Prepare the image</h3><p>Use a well-lit, in-focus photo with the ingredient panel filling most of the frame. Keep the full text visible and avoid glare, steep angles, or motion blur.</p><ul><li>Accepted formats: JPEG, PNG, or WebP.</li><li>Maximum file size: 10 MB.</li><li>Photograph only what is needed; avoid including faces, receipts, addresses, or unrelated personal information.</li></ul></div>
+        </div>
+        <div class="step">
+          <span class="step-badge" aria-hidden="true">2</span>
+          <div><h3>Upload the label</h3><p>From your private workspace, select <strong>New scan</strong> or <strong>Scan a label</strong>. Choose <strong>Browse files</strong> or drag the image into the upload area, then select <strong>Upload label photo</strong>.</p><p>The service validates and re-encodes the image to remove embedded metadata. The image is associated with your account and is not sent to OpenAI or Groq as part of an explanation request.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-badge" aria-hidden="true">3</span>
+          <div><h3>Wait for the review draft</h3><p>A scan may show <strong>Queued</strong> or <strong>Reading label</strong> before the review form appears. If it remains processing, return to <strong>Scan history</strong> and reopen it. OCR may be unavailable in a particular deployment; manual entry is still possible.</p></div>
+        </div>
+        <div class="notice info" role="note"><span class="notice-icon" aria-hidden="true">✓</span><div><strong>Current build limitation</strong><p>OCR is not enabled in the current application image. Until a reviewed OCR build is available, enter the ingredient text manually. Even when OCR is enabled in a later deployment, always verify it against the package.</p></div></div>
+      </section>
+
+      <section class="section" id="review" aria-labelledby="review-title">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">03</span><div><h2 id="review-title">Review and confirm the ingredients</h2><p>This is the most important step: the app does not decide where one ingredient ends and another begins.</p></div></div>
+        <div class="card">
+          <h3>Correct the draft</h3>
+          <ul>
+            <li>Open <strong>View raw OCR text</strong> if you want to compare it with the image. Raw OCR is unconfirmed text.</li>
+            <li>In the ingredient box, enter <strong>one ingredient per line</strong>. Correct spelling, add missing items, remove text that is not an ingredient, and keep label order if possible.</li>
+            <li>Empty lines are ignored. The interface accepts up to 300 items; keep each ingredient line to 300 characters or fewer.</li>
+          </ul>
+          <div class="ingredient-example" aria-label="Example ingredient list">Water
+Glycerin
+Niacinamide
+Caprylic/Capric Triglyceride</div>
+          <p>Do not guess an ingredient name from an unclear photo. If you cannot read it, leave it unresolved or retake the image.</p>
+        </div>
+        <div class="table-wrap" role="region" aria-label="Review actions" tabindex="0">
+          <table>
+            <thead><tr><th>Action</th><th>What it does</th><th>Does it analyze?</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Save draft</strong></td><td>Saves your edited list so you can return to it later.</td><td>No. The list remains unconfirmed.</td></tr>
+              <tr><td><strong>Save &amp; confirm ingredients</strong></td><td>Records that you have reviewed the non-empty list and understand OCR can be wrong.</td><td>Not yet. It enables you to run analysis as a separate action.</td></tr>
+              <tr><td><strong>Analyze confirmed list</strong></td><td>Checks the confirmed names against exact ingredient records and the rules currently configured.</td><td>Yes. This is an explicit, separate action.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice safety" role="note"><span class="notice-icon" aria-hidden="true">!</span><div><strong>Do not confirm a list you have not checked.</strong><p>Misspellings, abbreviations, language differences, or ambiguous names may remain unresolved. The app does not use a guessed match to create a finding.</p></div></div>
+      </section>
+
+      <section class="section" id="results" aria-labelledby="results-title">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">04</span><div><h2 id="results-title">Understand your results</h2><p>Results are narrow, rule-based notes—not a product rating or personal assessment.</p></div></div>
+        <div class="card">
+          <h3>How matching works</h3>
+          <p>The app uses exact normalized ingredient records and a configured deterministic rule set. It does not make a fuzzy guess. Each displayed citation is checked by the server against current reviewed evidence/source records.</p>
+          <p>If a name is <strong>unresolved</strong> or <strong>ambiguous</strong>, the app does not invent a canonical identity or guessed finding. Review the spelling and label; if you still cannot identify it, treat it as unknown rather than assuming it is absent.</p>
+        </div>
+        <div class="table-wrap" role="region" aria-label="Analysis status meanings" tabindex="0">
+          <table>
+            <thead><tr><th>Status or message</th><th>Meaning</th><th>What to do</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Analysis complete</strong></td><td>The confirmed list was checked against the configured records and rules.</td><td>Read each finding, its scope, and the cited source. Do not treat it as an individual safety decision.</td></tr>
+              <tr><td><strong>Needs review</strong></td><td>One or more names could not be matched exactly or are ambiguous.</td><td>Recheck the list and label. No guessed finding was added.</td></tr>
+              <tr><td><strong>No active rules</strong></td><td>There are no active rules available to assess the current list.</td><td>This means coverage is unavailable—not that the product is safe.</td></tr>
+              <tr><td><strong>No configured findings</strong></td><td>No current configured rule produced a finding for the confirmed list.</td><td>Do not infer safety, compatibility, or absence of risk from this message.</td></tr>
+              <tr><td><strong>Analysis needs an update</strong></td><td>A source, rule, or catalog record changed after the previous analysis.</td><td>Select <strong>Refresh analysis</strong> to request a current result.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice draft" role="note"><span class="notice-icon" aria-hidden="true">i</span><div><strong>Coverage is currently empty in this project.</strong><p>The production ingredient/evidence corpus and active safety rules have not been populated or approved. A live product cannot yet provide real-world ingredient coverage. Do not use a blank or finding-free result as evidence of safety.</p></div></div>
+      </section>
+
+      <section class="section" id="explanations" aria-labelledby="explanations-title">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">05</span><div><h2 id="explanations-title">Optional explanations</h2><p>An explanation may help unpack one existing finding, but it is not the source of truth.</p></div></div>
+        <div class="card">
+          <h3>Request an explanation</h3>
+          <ol>
+            <li>Open a current finding in a confirmed scan.</li>
+            <li>Select an available provider from the menu and choose <strong>Explain this finding</strong>.</li>
+            <li>For OpenAI or Groq, read the displayed disclosure and give separate, provider-specific consent if you choose. Consent alone does not send anything; you must still request the explanation.</li>
+            <li>You can revoke cloud-provider consent under <strong>Settings &amp; privacy</strong>.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>What an explanation can—and cannot—do</h3>
+          <div class="callout-list">
+            <div class="callout-item"><span class="check" aria-hidden="true">✓</span><span>It can summarize one current deterministic finding using approved evidence text.</span></div>
+            <div class="callout-item"><span class="check" aria-hidden="true">✓</span><span>Only the selected finding's confirmed ingredient, current finding text, and approved evidence summaries/permitted excerpts may be sent to the chosen explanation provider.</span></div>
+            <div class="callout-item"><span class="xmark" aria-hidden="true">×</span><span>It cannot add, remove, or change a rule finding, and it cannot supply or replace a citation.</span></div>
+            <div class="callout-item"><span class="xmark" aria-hidden="true">×</span><span>Raw images, your email, full scan, other scan ingredients, source URLs, and profile/skin notes are not part of the explanation request.</span></div>
+            <div class="callout-item"><span class="xmark" aria-hidden="true">×</span><span>Generated text is not stored by the app and may be incomplete or inaccurate. It is not medical advice.</span></div>
+          </div>
+          <div class="inline-note">Ollama is an operator-configured endpoint shown as local in the interface. OpenAI and Groq are cloud providers and require current provider-specific consent. Do not enter provider passwords or API keys in the app; credentials are configured by the operator.</div>
+        </div>
+      </section>
+
+      <section class="section" id="privacy" aria-labelledby="privacy-title">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">06</span><div><h2 id="privacy-title">History, privacy, and account controls</h2><p>Review and manage your data from the signed-in workspace.</p></div></div>
+        <div class="card">
+          <h3>Find or remove a scan</h3>
+          <ul>
+            <li><strong>Overview</strong> shows recent scans. <strong>Scan history</strong> lists scans saved to your account; open one to return to its draft or results.</li>
+            <li>Use <strong>Delete</strong> beside a scan and confirm the action to remove that scan, its analysis history, and its retained private photo. Deletion cannot be undone.</li>
+            <li>The current interface loads the newest scan history; older-page navigation may not be available in this build.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Export or delete your account</h3>
+          <ul>
+            <li>Open <strong>Settings &amp; privacy</strong> and select <strong>Download account export</strong> for a JSON copy of account/profile data, declarations, scans, and analysis history.</li>
+            <li><strong>Delete account</strong> permanently removes the account, scans, analysis history, declared terms, and retained private photos. The app asks for your password and a final confirmation.</li>
+            <li>Sign out when you finish, especially on a shared device. Do not save passwords on a device you do not control.</li>
+          </ul>
+        </div>
+        <div class="notice draft" role="note"><span class="notice-icon" aria-hidden="true">i</span><div><strong>Retention must be confirmed before public use.</strong><p>The owner-approved backup policy is encrypted daily backups with 30-day retention, but the backup destination, schedule, alerting, and restore process are not configured or verified. This guide is not a promise about how quickly deleted data disappears from backups. The service operator must publish an accurate privacy/retention notice before launch.</p></div></div>
+        <div class="card">
+          <h3>Optional declared terms</h3>
+          <p>In <strong>My profile</strong>, you may save ingredient terms marked as sensitivity, allergy, preference, or avoid. These are personal, user-reported notes. They are not medically verified and do not confirm an allergy or guarantee that a product will be filtered safely.</p>
+        </div>
+      </section>
+
+      <section class="section" id="troubleshooting" aria-labelledby="troubleshooting-title">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">07</span><div><h2 id="troubleshooting-title">Troubleshooting</h2><p>Common issues and safe next steps.</p></div></div>
+        <details><summary>My photo is rejected</summary><p>Check that it is a JPEG, PNG, or WebP image and is no larger than 10 MB. If it is still rejected, retake or export a smaller image. Avoid renaming a different file type to make it appear to be an accepted format.</p></details>
+        <details><summary>The OCR text is blank, wrong, or unavailable</summary><p>Compare the raw text with the package. Correct, add, or remove entries yourself, one per line. If recognition is unavailable, type the list manually. Never confirm a draft you have not reviewed.</p></details>
+        <details><summary>An ingredient appears unresolved or ambiguous</summary><p>Check the spelling and the exact text on the label. The app uses exact matching and does not guess. If the label is unclear, keep the identity unresolved rather than selecting a similar-sounding name.</p></details>
+        <details><summary>I see “No active rules” or “No configured findings”</summary><p>This is not a product safety result. It means the current database/rule coverage did not provide a finding or could not assess the list. Do not use it to decide that a product is safe for you.</p></details>
+        <details><summary>A scan is still processing</summary><p>Return to Scan history and reopen it. If it continues to fail, try a new clear label image. Processing can be interrupted if the local service restarts; no long-term processing guarantee is made by this draft guide.</p></details>
+        <details><summary>I did not receive a verification or reset message</summary><p>Check your spam/junk folder, verify that you entered the correct address, and request new instructions from the relevant page. Keep one-time tokens private. If the issue continues, use the service operator's published support route once one is available.</p></details>
+        <details><summary>An optional explanation failed or seems incorrect</summary><p>Read the deterministic finding and its citation instead. Generated prose may be unavailable, incomplete, or inaccurate and never overrides the finding. Do not retry by sending private data to another provider.</p></details>
+      </section>
+
+      <section class="section" id="accessibility" aria-labelledby="accessibility-title">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">08</span><div><h2 id="accessibility-title">Keyboard and mobile use</h2><p>The interface is designed to be navigable without a mouse.</p></div></div>
+        <div class="card">
+          <ul>
+            <li>Use <kbd>Tab</kbd> and <kbd>Shift</kbd> + <kbd>Tab</kbd> to move between links and controls; press <kbd>Enter</kbd> or <kbd>Space</kbd> to activate a control.</li>
+            <li>On a narrow screen, use the menu button to open the workspace navigation. Press <kbd>Escape</kbd> to close an open menu or dialog.</li>
+            <li>In a dialog, keyboard focus stays within the dialog until it closes.</li>
+            <li>Use the visible focus outline to track your position. You can print this guide or save it as a PDF from your browser.</li>
+          </ul>
+          <p>Keyboard support does not by itself establish accessibility conformance. The product still requires broader device, screen-reader, zoom, and user testing.</p>
+        </div>
+      </section>
+
+      <section class="section" id="glossary" aria-labelledby="glossary-title">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">09</span><div><h2 id="glossary-title">Glossary</h2><p>A few terms you may see in the app.</p></div></div>
+        <dl class="glossary">
+          <dt>OCR</dt><dd>Optical character recognition: software that attempts to read text from an image. Its output must be checked by you.</dd>
+          <dt>Confirmed list</dt><dd>The ingredient list you have reviewed and explicitly confirmed. Only this list is eligible for deterministic analysis.</dd>
+          <dt>Deterministic rule</dt><dd>A preconfigured rule that produces the same result for the same confirmed input and rule version. It is not a medical judgment.</dd>
+          <dt>Citation</dt><dd>A source reference linked to a configured finding. It provides context, not a guarantee that a result applies to your individual situation.</dd>
+          <dt>Unresolved</dt><dd>The text did not match an exact ingredient record available to the app.</dd>
+          <dt>Ambiguous</dt><dd>The text could refer to more than one record, so the app does not guess which one you meant.</dd>
+          <dt>Stale analysis</dt><dd>An earlier result is no longer current because a source, rule, or catalog record changed. Refresh it before reading current findings.</dd>
+        </dl>
+      </section>
+
+      <section class="section" id="creator" aria-labelledby="creator-title">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">10</span><div><h2 id="creator-title">About the creator</h2><p>A short introduction from the person building Clarity Checker.</p></div></div>
+        <div class="card creator-card"><h3>Hi, I’m Hammad Zahid.</h3><p>I’m building Clarity Checker to make skincare ingredient labels easier to review, with source-linked educational notes and clear limits. The project is designed to support careful human review—not provide a personal safety verdict.</p>
+          <nav class="social-links" aria-label="Hammad Zahid on social media"><a class="social-link" href="https://www.facebook.com/hammad.zahid.9484" target="_blank" rel="me noopener noreferrer">Facebook <span aria-hidden="true">↗</span></a><a class="social-link" href="https://www.linkedin.com/in/hammad-zahid-xyz/" target="_blank" rel="me noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a class="social-link" href="https://github.com/Hamad-Ansari" target="_blank" rel="me noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="final-title">
+        <div class="notice safety" role="note"><span class="notice-icon" aria-hidden="true">!</span><div><strong id="final-title">A final reminder</strong><p>Ingredient labels, data sources, and individual responses are not always straightforward. Use Clarity Checker as an educational reference only. A finding, a missing finding, or an explanation should not replace a qualified professional's advice.</p></div></div>
+      </section>
+
+      <footer class="footer">
+        <p><strong>Clarity Checker · AI Skincare Ingredient Checker</strong></p>
+        <p>User guidebook draft, version 0.1. It describes the current interface and its limitations, not a promise that production services are available or verified.</p>
+        <p>Before public distribution, review this guide alongside the approved privacy notice, retention/deletion terms, support process, and production feature configuration.</p>
+        <a class="back-top" href="#top">Back to top ↑</a>
+      </footer>
+    </main>
+  </div>
+  <script>
+    document.getElementById("print-guide")?.addEventListener("click", () => window.print());
+  </script>
+</body>
+</html>

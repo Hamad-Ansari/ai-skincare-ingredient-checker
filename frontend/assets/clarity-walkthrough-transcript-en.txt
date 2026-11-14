@@ -1,0 +1,11 @@
+CLARITY CHECKER WALKTHROUGH — ENGLISH TRANSCRIPT
+
+Welcome to Clarity Checker. This is a pre-launch walkthrough: the production ingredient and evidence library is empty, and OCR is not enabled in the current app image. This video explains the workflow, not live product results.
+
+Create an account with a unique password of at least twelve characters, verify your email, then sign in. The optional profile is for your own notes. It is not a diagnosis and is not sent to explanation providers.
+
+Choose a clear J P E G, P N G, or WebP label photo up to ten megabytes. In this build, type ingredients manually, one per line, and compare every spelling with the package. Never confirm text you have not checked.
+
+Save a draft if you want to return later. To analyze, confirm the non-empty list you reviewed, then select Analyze confirmed list. Matching is exact; unknown or ambiguous names stay unresolved. No finding is not proof of safety.
+
+Explanations are optional. OpenAI and Groq need separate consent and can explain one finding, but never change results. History lets you reopen or delete scans. Settings offers export, account deletion, and consent controls. This is educational information, not medical advice.

@@ -1,0 +1,17 @@
+[Unit]
+Description=Clarity Checker encrypted off-site backup
+Wants=network-online.target
+After=docker.service network-online.target
+Requires=docker.service
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/clarity-checker
+EnvironmentFile=/etc/clarity-checker/backup.env
+Environment=BACKUP_DIR=/var/lib/clarity-checker/staging
+UMask=0077
+TimeoutStartSec=3h
+ExecStart=/opt/clarity-checker/scripts/backup_offsite.sh
+StandardOutput=journal
+StandardError=journal

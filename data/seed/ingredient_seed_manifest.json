@@ -1,0 +1,7 @@
+{
+  "manifest_version": 1,
+  "state": "awaiting_reviewed_sources",
+  "sources": [],
+  "imports": [],
+  "notes": "No ingredient or evidence records are seeded. Add a source only after its reuse terms, attribution, version, and provenance have been reviewed; every import still requires row review and explicit activation."
+}

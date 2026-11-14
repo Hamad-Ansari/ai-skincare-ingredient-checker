@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the Clarity Checker off-site backup daily
+
+[Timer]
+OnCalendar=*-*-* 02:00:00 UTC
+Persistent=true
+Unit=clarity-checker-backup.service
+
+[Install]
+WantedBy=timers.target
